@@ -2,6 +2,7 @@ package core
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 	"os/exec"
 	"sync"
@@ -82,9 +83,16 @@ func (m Manager) Start(cmd *exec.Cmd, physicalPath string) chan bool {
 
 	// Run the transcoding, resolve stream if it errors out
 	go func() {
+		pipeout, _ := cmd.StdoutPipe()
+		pipeerr, _ := cmd.StderrPipe()
 		if err := cmd.Run(); err != nil {
 			once.Do(func() {
 				logrus.Errorf("Error happened during starting of %s || Error: %s", physicalPath, err)
+				d, _ := ioutil.ReadAll(pipeout)
+				fmt.Println(string(d))
+				d, _ = ioutil.ReadAll(pipeerr)
+				fmt.Println(string(d))
+
 				streamResolved <- false
 			})
 		}

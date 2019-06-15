@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/Roverr/rtsp-stream/core/config"
 	jwt "github.com/dgrijalva/jwt-go"
+	"github.com/racerxdl/rtsp-stream/core/config"
 	"github.com/sirupsen/logrus"
 )
 

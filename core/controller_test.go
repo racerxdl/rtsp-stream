@@ -18,9 +18,9 @@ import (
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/julienschmidt/httprouter"
 
-	"github.com/Roverr/rtsp-stream/core/config"
-	"github.com/Roverr/rtsp-stream/core/streaming"
 	"github.com/brianvoe/gofakeit"
+	"github.com/racerxdl/rtsp-stream/core/config"
+	"github.com/racerxdl/rtsp-stream/core/streaming"
 	"github.com/stretchr/testify/assert"
 )
 

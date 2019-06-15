@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Roverr/rtsp-stream/core/config"
 	jwt "github.com/dgrijalva/jwt-go"
+	"github.com/racerxdl/rtsp-stream/core/config"
 	"github.com/stretchr/testify/assert"
 )
 

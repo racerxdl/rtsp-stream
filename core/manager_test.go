@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Roverr/rtsp-stream/core/streaming"
+	"github.com/racerxdl/rtsp-stream/core/streaming"
 	"github.com/stretchr/testify/assert"
 )
 

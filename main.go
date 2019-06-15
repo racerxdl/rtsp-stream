@@ -8,8 +8,8 @@ import (
 
 	"github.com/rs/cors"
 
-	"github.com/Roverr/rtsp-stream/core"
-	"github.com/Roverr/rtsp-stream/core/config"
+	"github.com/racerxdl/rtsp-stream/core"
+	"github.com/racerxdl/rtsp-stream/core/config"
 	"github.com/sirupsen/logrus"
 )
 

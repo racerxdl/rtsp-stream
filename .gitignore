@@ -20,3 +20,5 @@ videos
 node_modules
 dist
 .cache
+rtspserver
+.idea

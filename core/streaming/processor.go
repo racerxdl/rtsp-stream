@@ -7,13 +7,14 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 	"sync"
 	"time"
 
 	"github.com/Roverr/hotstreak"
-	"github.com/Roverr/rtsp-stream/core/config"
 	"github.com/kennygrant/sanitize"
 	"github.com/natefinch/lumberjack"
+	"github.com/racerxdl/rtsp-stream/core/config"
 	"github.com/sirupsen/logrus"
 )
 
@@ -65,37 +66,31 @@ func (p Processor) NewProcess(URI string) *exec.Cmd {
 		return nil
 	}
 
+	args := []string{
+		"-y", "-fflags", "nobuffer", "-rtsp_transport", "tcp",
+		"-i", URI, "-vsync", "0",
+		"-copyts", "-vcodec", "copy",
+		"-movflags", "frag_keyframe+empty_moov",
+		"-an", "-hls_flags", p.getHLSFlags(),
+		"-f", "hls",
+		"-segment_list_flags", "live",
+		"-hls_time", "1",
+		"-hls_list_size", "3",
+		"-hls_segment_filename", fmt.Sprintf("%s/%%d.ts", newPath), fmt.Sprintf("%s/index.m3u8", newPath),
+		"-f", "image2",
+		"-vf", "framestep=10,fps=3",
+		"-qscale:v", "2",
+		"-update", "1",
+		fmt.Sprintf("%s/snapshot.jpg", newPath),
+	}
+
 	cmd := exec.Command(
 		"ffmpeg",
-		"-y",
-		"-fflags",
-		"nobuffer",
-		"-rtsp_transport",
-		"tcp",
-		"-i",
-		URI,
-		"-vsync",
-		"0",
-		"-copyts",
-		"-vcodec",
-		"copy",
-		"-movflags",
-		"frag_keyframe+empty_moov",
-		"-an",
-		"-hls_flags",
-		p.getHLSFlags(),
-		"-f",
-		"hls",
-		"-segment_list_flags",
-		"live",
-		"-hls_time",
-		"1",
-		"-hls_list_size",
-		"3",
-		"-hls_segment_filename",
-		fmt.Sprintf("%s/%%d.ts", newPath),
-		fmt.Sprintf("%s/index.m3u8", newPath),
+		args...,
 	)
+
+	logrus.Debug("Started ffmpeg ", strings.Join(args, " "))
+
 	return cmd
 }
 

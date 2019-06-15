@@ -1,10 +1,10 @@
 # <img src="./rtsp-stream.png"/>
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/Roverr/rtsp-stream)](https://goreportcard.com/report/github.com/Roverr/rtsp-stream)
- [![Maintainability](https://api.codeclimate.com/v1/badges/202152e83296250ab527/maintainability)](https://codeclimate.com/github/Roverr/rtsp-stream/maintainability)
+[![Go Report Card](https://goreportcard.com/badge/github.com/racerxdl/rtsp-stream)](https://goreportcard.com/report/github.com/racerxdl/rtsp-stream)
+ [![Maintainability](https://api.codeclimate.com/v1/badges/202152e83296250ab527/maintainability)](https://codeclimate.com/github/racerxdl/rtsp-stream/maintainability)
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
- ![GitHub last commit](https://img.shields.io/github/last-commit/Roverr/rtsp-stream.svg)
- ![GitHub release](https://img.shields.io/github/release/Roverr/rtsp-stream.svg)
+ ![GitHub last commit](https://img.shields.io/github/last-commit/racerxdl/rtsp-stream.svg)
+ ![GitHub release](https://img.shields.io/github/release/racerxdl/rtsp-stream.svg)
 
 rtsp-stream is an easy to use out of box solution that can be integrated into existing systems resolving the problem of not being able to play rtsp stream natively in browsers. 
 
@@ -95,7 +95,7 @@ Simple static file serving which is used when fetching chunks of `HLS`. This wil
 This (kind of a debug) endpoint is used to list the streams in the system. 
 Since the application does not handle users, it does not handle permissions obviously. 
 You might not want everyone to be able to list the streams 
-available in the system. But if you do, you can use this. You just have to enable it via [env variable](https://github.com/Roverr/rtsp-stream#configuration).
+available in the system. But if you do, you can use this. You just have to enable it via [env variable](https://github.com/racerxdl/rtsp-stream#configuration).
 
 
 
